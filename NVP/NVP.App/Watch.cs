@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Windows.Forms;
 
 namespace NVP.App
 {
@@ -38,13 +39,15 @@ namespace NVP.App
         /// Creates a new instance of a Watch 
         /// </summary>
         /// <param name="requestedFrameRate">Frame rate requested that the watch should achieve</param>
-        public Watch(Int32 requestedFrameRate)
+        public Watch(Int32 requestedFrameRate, Control container, EventHandler<TickEventArgs> handler)
         {
             this._requestedFrameRate = requestedFrameRate;
             this._currentFramesCount = 0;
             this._frameTimer = InitializeFrameTimer(requestedFrameRate);
             this._frameTimer.Start();
             this._fpsTimer = Stopwatch.StartNew();
+            this._handler = handler;
+            this._container = container;
         }
 
         #endregion
@@ -54,7 +57,12 @@ namespace NVP.App
         /// <summary>
         /// Event raised on each tick
         /// </summary>
-        public event EventHandler<TickEventArgs> Tick;
+        private EventHandler<TickEventArgs> _handler;
+
+        /// <summary>
+        /// Container possessing the <see cref="_handler"/> delegate
+        /// </summary>
+        private readonly Control _container;
 
         #endregion
 
@@ -100,10 +108,14 @@ namespace NVP.App
         /// <param name="currentFrameRate">Current frame rate</param>
         private void RaiseTickEvent(Int32 currentFrameRate)
         {
-            EventHandler<TickEventArgs> handler = this.Tick;
+            EventHandler<TickEventArgs> handler = this._handler;
             if (handler != null)
             {
-                handler(this, new TickEventArgs(this._requestedFrameRate, currentFrameRate));
+                TickEventArgs e = new TickEventArgs(this._requestedFrameRate, currentFrameRate);
+                if (this._container.InvokeRequired)
+                    this._container.Invoke(handler, (Object)this, e);
+                else
+                    handler(this, e);
             }
         }
 

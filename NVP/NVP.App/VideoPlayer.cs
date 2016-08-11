@@ -26,15 +26,12 @@ namespace NVP.App
         /// <param name="player">The player containing the video to dislay in the form</param>
         public VideoPlayer(VideoDecoder player)
         {
-            Form.CheckForIllegalCrossThreadCalls = false;
-
             InitializeComponent();
 
             this._player = player;
             Cursor.Hide();
 
-            this._watch = new Watch(player.Metadata.FrameRate);
-            this._watch.Tick += Watch_Tick;
+            this._watch = new Watch(player.Metadata.FrameRate, this, Watch_Tick);
         }
 
         /// <summary>

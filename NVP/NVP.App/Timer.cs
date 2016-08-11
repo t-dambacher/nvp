@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Runtime.InteropServices;
-using System.Text;
-using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace NVP.App
 {
@@ -72,7 +69,7 @@ namespace NVP.App
             EventHandler handler = this.Tick;
             if (handler != null)
             {
-                handler(this, EventArgs.Empty);
+                handler.Invoke(this, EventArgs.Empty);
             }
         }
 
