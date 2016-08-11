@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NVP", "NVP\NVP.csproj", "{C8A4918A-526E-4601-BA91-DF03C67ADC39}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NVPlayer", "NVP.App\NVPlayer.csproj", "{198F38BB-F546-40F3-A094-9C7E62C49443}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C8A4918A-526E-4601-BA91-DF03C67ADC39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8A4918A-526E-4601-BA91-DF03C67ADC39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8A4918A-526E-4601-BA91-DF03C67ADC39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8A4918A-526E-4601-BA91-DF03C67ADC39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{198F38BB-F546-40F3-A094-9C7E62C49443}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{198F38BB-F546-40F3-A094-9C7E62C49443}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{198F38BB-F546-40F3-A094-9C7E62C49443}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{198F38BB-F546-40F3-A094-9C7E62C49443}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
